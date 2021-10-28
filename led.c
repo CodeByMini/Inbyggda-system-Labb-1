@@ -24,4 +24,19 @@ void BlinkLed(){
     _delay_ms(500);
 }
 
+void ChangeLedState(char*command){
+        if(strcmp(command, "off\r\n")==0){
+            PORTB |= (1 << BLUE); 
+        }
+        if(strcmp(command, "on\r\n")==0){
+            PORTB &= ~(1 << BLUE); 
+        }
+        if(strcmp(command, "red\r\n")==0){
+            BIT_FLIP(PORTB,RED);
+        }
+        if(strcmp(command, "green\r\n")==0){
+            BIT_FLIP(PORTB,GREEN);
+        }
+}
+
     

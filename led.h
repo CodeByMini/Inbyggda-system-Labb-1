@@ -14,5 +14,6 @@
 
 void InitLed();
 void BlinkLed();
+void ChangeLedState(char*);
 
 #endif

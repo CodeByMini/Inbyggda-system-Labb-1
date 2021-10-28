@@ -7,5 +7,6 @@ void uart_init();
 
 void uart_putstr(char *);
 void uart_echo();
+void uart_get_command(char *command);
 
 #endif

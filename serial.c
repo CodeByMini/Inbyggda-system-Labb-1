@@ -63,3 +63,19 @@ void uart_echo(){
     uart_putchar(uart_getchar());
 }
 
+void uart_get_command(char *command){
+    char c;
+    int i = 0;
+    c = uart_getchar();
+    uart_putchar(c);
+    while((c != '\r') && (c !='\n') && (i <=(MAX_COMMAND_SIZE-3))){
+        command[i] = c;
+        i++;
+        c = uart_getchar();
+        uart_putchar(c);
+    }
+    command[i] = '\r';
+    command[i+1] = '\n';
+    command[i+2] = '\0';
+}
+
