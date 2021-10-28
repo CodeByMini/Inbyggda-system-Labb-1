@@ -3,12 +3,10 @@
 #include "serial.h"
 
 int main () {
-    char * name = {"Daniel Johansson\n"};
-    InitLed();
     uart_init();
 
     while(1){
-        uart_putstr(name);
+        uart_echo();
     }
     return 1;
 }

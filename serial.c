@@ -51,3 +51,15 @@ void uart_putstr(char *name){
         i++;
     }
 }
+
+char uart_getchar(){
+    char chr;
+        while(!(UCSR0A & (1 << RXC0)));
+        chr = UDR0;
+return chr;
+}
+
+void uart_echo(){
+    uart_putchar(uart_getchar());
+}
+
